@@ -65,11 +65,12 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
         }
 
         .modal-content {
             background-color: #1e1e1e;
-            margin: 20% auto;
             padding: 25px;
             border: 1px solid #ffdf00;
             width: 80%;
@@ -77,6 +78,26 @@
             border-radius: 20px;
             text-align: center;
             box-shadow: 0 0 20px rgba(255, 223, 0, 0.3);
+            position: relative;
+        }
+
+        /* App စဖွင့်ချင်း Modal အတွက် Style အပို */
+        .start-modal-content {
+            background-color: #fff;
+            width: 85%;
+            max-width: 380px;
+            border-radius: 25px;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+        .promo-header { background-color: #1a1a1a; padding: 25px; }
+        .promo-img { width: 100%; max-width: 250px; }
+        .promo-body { padding: 20px; color: #333; }
+        .promo-btn { 
+            display: block; background: #6a49cc; color: #fff; 
+            padding: 12px; text-decoration: none; border-radius: 12px; 
+            font-weight: bold; margin-top: 15px; 
         }
 
         .close-btn {
@@ -87,6 +108,12 @@
             border-top: 1px solid #333;
             padding-top: 15px;
             display: block;
+        }
+
+        /* Start Modal ပိတ်ရန် x ခလုတ် */
+        .x-close {
+            position: absolute; right: 15px; top: 10px;
+            font-size: 25px; color: #fff; cursor: pointer; z-index: 10;
         }
 
         /* Banner */
@@ -190,9 +217,25 @@
             &#128276;<span class="dot"></span> </div>
     </div>
 
+    <div id="startModal" class="modal" style="display: flex;">
+        <div class="start-modal-content">
+            <span class="x-close" onclick="closeStartModal()">&times;</span>
+            <div class="promo-header">
+                <img src="https://i.ibb.co/RTsTs24R/1770536241900.png" alt="Promo" class="promo-img">
+            </div>
+            <div class="promo-body">
+                <h3 style="margin:0; color:#6a49cc;">Special Promotion!</h3>
+                <p style="margin:10px 0;">Update များသိရန် 
+                 Channel လေး join ထားကြပါ။</p>
+                <a href="https://t.me/lottery_and_slot_channel" target="_blank" class="promo-btn">Join Channel</a>
+            </div>
+        </div>
+    </div>
+
     <div id="notifModal" class="modal">
         <div class="modal-content">
-            <h2>သတင်းကောင်း! &#128227;</h2> <p>အိမ်မှာနေရင်း ဝင်ငွေတိုးချင်သူများအတွက် သတင်းကောင်း! &#10240;&#10240; ✨<br><br>
+            <h2>သတင်းကောင်း! &#128227;</h2> 
+            <p style="text-align: left;">အိမ်မှာနေရင်း ဝင်ငွေတိုးချင်သူများအတွက် သတင်းကောင်း! ✨<br><br>
             <b>@RAW MAGIC</b> မှာ ငွေကျပ် ၅,၀၀၀ ရင်းရုံနဲ့ သိန်းချီအမြတ်ရနိုင်မယ့် ကိုယ်ပိုင်စီးပွားရေး လမ်းကြောင်းတစ်ခု ရှိနေပါပြီ။<br><br>
             ငွေကို ဒီတိုင်းမထားဘဲ အခုပဲ အရင်းအနှီးလုပ်ပြီး ဝင်ငွေတိုးပွားအောင် လုပ်ဆောင်လိုက်ပါ။ &#128184;</p>
             <div class="close-btn" onclick="closeModal()">ပိတ်မည်</div>
@@ -210,51 +253,50 @@
     </div>
 
     <div class="grid-container">
-        
         <div class="card" onclick="location.href='https://365-strike.com/?invite=TG140F1298'">
             <div class="icon-box">&#127942;</div> <span>365-strike ကစားရန်</span>
         </div>
-
         <div class="card" onclick="location.href='https://iwjili.com/r/ihoqjs'">
             <div class="icon-box">&#129668;</div> <span>Slot ကစားရန်</span>
         </div>
-
-        <div class="card" onclick="location.href='https://www.cklottery.online/#/register?invitationCode=38175760057'">
+        <div class="card" onclick="location.href='http://www.cklottery.org/#/register?invitationCode=38175760057'">
             <div class="icon-box">&#127136;</div> <span>CK ကစားရန်</span>
         </div>
-
         <div class="card" onclick="location.href='https://www.bigwingame.bet/#/register?invitationCode=31581651122'">
             <div class="icon-box">&#128142;</div> <span>777 ကစားရန်</span>
         </div>
-
         <div class="card" onclick="location.href='https://t.me/lottery_and_slot_channel/3?single'">
             <div class="icon-box">&#128221;</div> <span>အကောင့်ဖွင့်နည်း</span>
         </div>
-
         <div class="card" onclick="location.href='https://t.me/lottery_and_slot_channel/7?single'">
             <div class="icon-box">&#128181;</div> <span>ငွေသွင်းနည်း</span>
         </div>
-
         <div class="card" onclick="location.href='https://t.me/lottery_and_slot_channel/13'">
             <div class="icon-box">&#128184;</div> <span>ငွေထုတ်နည်း</span>
         </div>
-
         <div class="card contact-card" onclick="location.href='https://t.me/RAW11234'">
             <div class="tg-circle">
                 <span style="font-size: 20px;">&#9992;</span> </div>
             <span style="color: #0088cc; font-weight: bold;">ဆက်သွယ်ရန်</span>
         </div>
-
     </div>
 
     <script>
-        function openModal() { document.getElementById("notifModal").style.display = "block"; }
+        // Start Modal ပိတ်ရန်
+        function closeStartModal() { document.getElementById("startModal").style.display = "none"; }
+        
+        // ခေါင်းလောင်းနှိပ်လျှင်ပွင့်ရန်
+        function openModal() { document.getElementById("notifModal").style.display = "flex"; }
         function closeModal() { document.getElementById("notifModal").style.display = "none"; }
+        
         window.onclick = function(event) {
-            let modal = document.getElementById("notifModal");
-            if (event.target == modal) { modal.style.display = "none"; }
+            let nModal = document.getElementById("notifModal");
+            let sModal = document.getElementById("startModal");
+            if (event.target == nModal) { nModal.style.display = "none"; }
+            if (event.target == sModal) { sModal.style.display = "none"; }
         }
     </script>
 
 </body>
 </html>
+ Developer - @RAW11234
