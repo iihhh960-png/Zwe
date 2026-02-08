@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAW MAGIC - Official App</title>
+    <style>
+        /* အခြေခံ Style များ */
+        body {
+            font-family: 'Pyidaungsu', 'Segoe UI', sans-serif;
+            background-color: #0f0f0f;
+            color: white;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header */
+        .header {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .brand-name {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #ffdf00, #ffaf00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Notification Icon */
+        .notif-icon {
+            position: relative;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            background: #ff0000;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 2px solid #0f0f0f;
+        }
+
+        /* Popup (Modal) Style */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+        }
+
+        .modal-content {
+            background-color: #1e1e1e;
+            margin: 20% auto;
+            padding: 25px;
+            border: 1px solid #ffdf00;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 223, 0, 0.3);
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            color: #ffdf00;
+            font-weight: bold;
+            cursor: pointer;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            display: block;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            max-width: 450px;
+            height: 160px;
+            border: 1px solid #ffdf00;
+            border-radius: 20px;
+            margin: 15px 0;
+            box-shadow: 0 0 15px rgba(255, 223, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Marquee */
+        .marquee-container {
+            width: 100%;
+            max-width: 450px;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 12px 0;
+            margin: 10px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 18s linear infinite;
+            font-size: 14px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 450px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #1e1e1e;
+            border-radius: 18px;
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #333;
+            cursor: pointer;
+        }
+
+        .icon-box {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .card span {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .contact-card {
+            border: 1px solid #0088cc;
+        }
+
+        .tg-circle {
+            width: 45px;
+            height: 45px;
+            background-color: #0088cc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="brand-name">RAW MAGIC</div>
+        <div class="notif-icon" onclick="openModal()">
+            &#128276;<span class="dot"></span> </div>
+    </div>
+
+    <div id="notifModal" class="modal">
+        <div class="modal-content">
+            <h2>သတင်းကောင်း! &#128227;</h2> <p>အိမ်မှာနေရင်း ဝင်ငွေတိုးချင်သူများအတွက် သတင်းကောင်း! &#10240;&#10240; ✨<br><br>
+            <b>@RAW MAGIC</b> မှာ ငွေကျပ် ၅,၀၀၀ ရင်းရုံနဲ့ သိန်းချီအမြတ်ရနိုင်မယ့် ကိုယ်ပိုင်စီးပွားရေး လမ်းကြောင်းတစ်ခု ရှိနေပါပြီ။<br><br>
+            ငွေကို ဒီတိုင်းမထားဘဲ အခုပဲ အရင်းအနှီးလုပ်ပြီး ဝင်ငွေတိုးပွားအောင် လုပ်ဆောင်လိုက်ပါ။ &#128184;</p>
+            <div class="close-btn" onclick="closeModal()">ပိတ်မည်</div>
+        </div>
+    </div>
+
+    <div class="banner" onclick="location.href='https://t.me/RAW11234'">
+        <img src="https://i.ibb.co/KkmTCJB/generated-image-f6731bb4-0448-40a3-bddf-9c07be076bce.png" alt="Banner">
+    </div>
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            အိမ်မှာနေရင်း ဝင်ငွေတိုးချင်သူများအတွက် သတင်းကောင်း! @RAW MAGIC မှာ ငွေကျပ် ၅,၀၀၀ ရင်းရုံနဲ့ သိန်းချီအမြတ်ရနိုင်မယ့် ကိုယ်ပိုင်စီးပွားရေး လမ်းကြောင်းတစ်ခု ရှိနေပါပြီ။ &#128184;&#10240;
+        </div>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="card" onclick="location.href='https://365-strike.com/?invite=TG140F1298'">
+            <div class="icon-box">&#127942;</div> <span>365-strike ကစားရန်</span>
+        </div>
+
+        <div class="card" onclick="location.href='https://iwjili.com/r/ihoqjs'">
+            <div class="icon-box">&#129668;</div> <span>Slot ကစားရန်</span>
+        </div>
+
+        <div class="card" onclick="location.href='https://www.cklottery.online/#/register?invitationCode=38175760057'">
+            <div class="icon-box">&#127136;</div> <span>CK ကစားရန်</span>
+        </div>
+
+        <div class="card" onclick="location.href='https://www.bigwingame.bet/#/register?invitationCode=31581651122'">
+            <div class="icon-box">&#128142;</div> <span>777 ကစားရန်</span>
+        </div>
+
+        <div class="card" onclick="location.href='https://t.me/lottery_and_slot_channel/3?single'">
+            <div class="icon-box">&#128221;</div> <span>အကောင့်ဖွင့်နည်း</span>
+        </div>
+
+        <div class="card" onclick="location.href='https://t.me/lottery_and_slot_channel/7?single'">
+            <div class="icon-box">&#128181;</div> <span>ငွေသွင်းနည်း</span>
+        </div>
+
+        <div class="card" onclick="location.href='https://t.me/lottery_and_slot_channel/13'">
+            <div class="icon-box">&#128184;</div> <span>ငွေထုတ်နည်း</span>
+        </div>
+
+        <div class="card contact-card" onclick="location.href='https://t.me/RAW11234'">
+            <div class="tg-circle">
+                <span style="font-size: 20px;">&#9992;</span> </div>
+            <span style="color: #0088cc; font-weight: bold;">ဆက်သွယ်ရန်</span>
+        </div>
+
+    </div>
+
+    <script>
+        function openModal() { document.getElementById("notifModal").style.display = "block"; }
+        function closeModal() { document.getElementById("notifModal").style.display = "none"; }
+        window.onclick = function(event) {
+            let modal = document.getElementById("notifModal");
+            if (event.target == modal) { modal.style.display = "none"; }
+        }
+    </script>
+
+</body>
+</html>
